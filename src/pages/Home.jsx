@@ -1,26 +1,31 @@
 
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
-import Card from "../components/Card.jsx"
+import CardPeople from "../components/CardPeople.jsx"
+import CardPlanet from "../components/CardPlanet.jsx"
+
 import { useEffect } from "react";
 import { getPeople } from "../service/fetchApi.js";
+import { getPlanets } from "../service/fetchApi.js"
+
 
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
 
 	useEffect(() => {
-		getPeople()
-			.then(data => dispatch({ type: 'get_people', payload: data }))
+		getPeople().then(data => dispatch({ type: 'get_people', payload: data }))
+		getPlanets().then(data => dispatch({ type: 'get_planets', payload: data }))
 	}, [])
+
 	console.log("este es mi store", store.people)
 	return (
 		<div className="container my-5">
-			<h3>Characters</h3>
-			<div>
+			<h3 style={{ color: "red" }}>Characters</h3>
+			<div className="my-4">
 				<div className="d-flex overflow-auto gap-3 pb-3" style={{ whiteSpace: "nowrap" }}>
 					{store.people.map((item) => (
-						<Card
+						<CardPeople
 							key={item.uid}
 							name={item.properties.name}
 							birth_year={item.properties.birth_year}
@@ -32,6 +37,20 @@ export const Home = () => {
 							skin_color={item.properties.skin_color}
 						/>
 					))}
+				</div>
+
+				<h3 className="my-4" style={{ color: "red" }}>Planets</h3>
+				<div className="my-4">
+					<div className="d-flex overflow-auto gap-3 pb-3" style={{ whiteSpace: "nowrap" }}>
+						{store.planets.map((item) => (
+							<CardPlanet
+								key={item.uid}
+								name={item.properties.name}
+								terrain={item.properties.terrain}
+								population={item.properties.population}
+							/>
+						))}
+					</div>
 				</div>
 			</div>
 		</div>

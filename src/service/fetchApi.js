@@ -16,6 +16,13 @@ export async function getPeople(){
 // }
 
 
+export async function getPlanets(){
+    const response = await fetch (`https://www.swapi.tech/api/planets/?expanded=true`)
+    const data = await response.json()
+    console.log(data.results)
+    return data.results
+}
+
 
 
 
