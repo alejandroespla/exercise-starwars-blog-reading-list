@@ -2,7 +2,8 @@ export const initialStore = () => {
   return {
     people: [],
     planets: [],
-    vehicles: []
+    vehicles: [],
+    favorites: []
   }
 }
 
@@ -28,6 +29,30 @@ export default function storeReducer(store, action = {}) {
         ...store,
         vehicles: action.payload
       }
+    
+    case "toggle_favorite":
+  const exists = store.favorites.some(
+    fav => fav.uid === action.payload.uid && fav.type === action.payload.type
+  );
+
+  const updatedFavorites = exists
+    ? store.favorites.filter(
+        fav => !(fav.uid === action.payload.uid && fav.type === action.payload.type)
+      )
+    : [...store.favorites, action.payload];
+
+  return {
+    ...store,
+    favorites: updatedFavorites
+  };
+
+  case "remove_favorite":
+  return {
+    ...state,
+    favorites: state.favorites.filter(
+      fav => !(fav.uid === action.payload.uid && fav.type === action.payload.type)
+    )
+  };
 
     default:
       throw Error('Unknown action.');
