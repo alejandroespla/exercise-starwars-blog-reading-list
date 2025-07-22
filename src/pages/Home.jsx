@@ -30,6 +30,7 @@ export const Home = () => {
 					{store.people.map((item) => (
 						<CardPeople
 							key={item.uid}
+							uid={item.uid}
 							name={item.properties.name}
 							birth_year={item.properties.birth_year}
 							eye_color={item.properties.eye_color}
@@ -48,6 +49,7 @@ export const Home = () => {
 						{store.planets.map((item) => (
 							<CardPlanet
 								key={item.uid}
+								uid={item.uid}
 								name={item.properties.name}
 								terrain={item.properties.terrain}
 								population={item.properties.population}
@@ -62,6 +64,7 @@ export const Home = () => {
 						{store.vehicles.map((item) => (
 							<CardVehicle
 								key={item.uid}
+								uid={item.uid}
 								name={item.properties.name}
 								model={item.properties.model}
 								cargo_capacity={item.properties.cargo_capacity}

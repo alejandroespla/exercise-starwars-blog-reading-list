@@ -26,12 +26,12 @@ export const Navbar = () => {
 						data-bs-toggle="dropdown"
 						aria-expanded="false"
 					>
-						Favorites <span className="badge text-bg-secondary">{store.favorites.length}</span>
+						Favorites <span className="badge text-bg-secondary ">{store.favorites.length}</span>
 					</button>
 
 					<ul className="dropdown-menu dropdown-menu-end">
 						{store.favorites.length === 0 ? (
-							<li className="dropdown-item text-muted">No favorites yet</li>
+							<li className="dropdown-item text-muted ">No favorites yet</li>
 						) : (
 							store.favorites.map((item, index) => (
 								<li
@@ -41,7 +41,7 @@ export const Navbar = () => {
 									<span>{item.name}</span>
 									<button
 										onClick={() => handleRemoveFavorite(item.uid, item.type)}
-										className="btn btn-sm btn-outline-danger ms-2"
+										className="btn btn-sm btn-outline-danger my-2"
 										title="Remove"
 									>
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
