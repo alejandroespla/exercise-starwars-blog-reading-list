@@ -1,5 +1,6 @@
 import useGlobalReducer from "../hooks/useGlobalReducer";
-import Vehicles from "../assets/img/vehicles.png"
+import Vehicles from "../assets/img/vehicles.png";
+import { Link } from 'react-router-dom';
 
 const CardVehicles = ({ uid, name, model, manufacturer, passengers, max_atmosphering_speed }) => {
   const { store, dispatch } = useGlobalReducer();
@@ -27,7 +28,9 @@ const CardVehicles = ({ uid, name, model, manufacturer, passengers, max_atmosphe
         <p className="card-text"><strong>Passengers: </strong>{passengers}</p>
         <p className="card-text"><strong>Speed: </strong>{max_atmosphering_speed}</p>
         <div className="d-flex justify-content-between">
+          <Link to={`/detail/vehicle/${uid}`}>
           <a href="#" className="btn btn-outline-primary">Know more!</a>
+          </Link>
           <a
             onClick={handleFavorite}
             href="#"

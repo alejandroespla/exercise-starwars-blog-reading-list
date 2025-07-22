@@ -10,6 +10,8 @@ import { Home } from "./pages/Home";
 import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
 import  PersonDetail from "./pages//PersonDetail.jsx";
+import  VehicleDetail from "./pages//VehicleDetail.jsx";
+import  PlanetDetail from "./pages//PlanetDetail.jsx";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -28,6 +30,8 @@ export const router = createBrowserRouter(
         <Route path="/demo" element={<Demo />} />
 
         <Route path="/detail/people/:uid" element={<PersonDetail />} />
+        <Route path="/detail/vehicle/:uid" element={<VehicleDetail />} />
+        <Route path="/detail/planet/:uid" element={<PlanetDetail />} />
       </Route>
     )
 );

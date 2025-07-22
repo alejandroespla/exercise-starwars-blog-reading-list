@@ -1,5 +1,5 @@
 import useGlobalReducer from "../hooks/useGlobalReducer";
-import Card_img from "../assets/img/card-img.png"
+import Card_img from "../assets/img/card-img.png";
 import { Link } from 'react-router-dom';
 
 const CardPeople = ({ uid, name, birth_year, eye_color, gender, hair_color, height, mass, skin_color }) => {

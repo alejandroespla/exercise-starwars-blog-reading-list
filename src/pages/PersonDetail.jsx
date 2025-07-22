@@ -16,10 +16,7 @@ const PersonDetail = () => {
       .then(data => {
         setPerson(data.result);
       })
-      .catch(err => {
-        // Aquí podrías manejar el error si quieres, ahora se ignora
-        setPerson(null);
-      });
+      
   }, [uid]);
 
   if (!person) return null; // No renderiza nada si no hay datos

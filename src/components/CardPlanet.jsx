@@ -1,5 +1,6 @@
 import useGlobalReducer from "../hooks/useGlobalReducer";
-import Planets from "../assets/img/planets.png"
+import Planets from "../assets/img/planets.png";
+import { Link } from 'react-router-dom';
 
 const CardPlanets = ({ uid, name, climate, diameter, gravity, population, terrain }) => {
   const { store, dispatch } = useGlobalReducer();
@@ -28,7 +29,9 @@ const CardPlanets = ({ uid, name, climate, diameter, gravity, population, terrai
         <p className="card-text"><strong>Population: </strong>{population}</p>
         <p className="card-text"><strong>Terrain: </strong>{terrain}</p>
         <div className="d-flex justify-content-between">
+          <Link to={`/detail/planet/${uid}`}>
           <a href="#" className="btn btn-outline-primary">Know more!</a>
+          </Link>
           <a
             onClick={handleFavorite}
             href="#"
