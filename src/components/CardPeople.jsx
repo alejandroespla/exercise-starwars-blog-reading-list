@@ -1,5 +1,6 @@
 import useGlobalReducer from "../hooks/useGlobalReducer";
 import Card_img from "../assets/img/card-img.png"
+import { Link } from 'react-router-dom';
 
 const CardPeople = ({ uid, name, birth_year, eye_color, gender, hair_color, height, mass, skin_color }) => {
 
@@ -27,7 +28,9 @@ const CardPeople = ({ uid, name, birth_year, eye_color, gender, hair_color, heig
                 <p className="card-text"><strong>Mass: </strong>{mass}</p>
                 <p className="card-text"><strong>Skin Color: </strong>{skin_color}</p>
                 <div className="d-flex justify-content-between">
+                    <Link to={`/detail/people/${uid}`}>
                     <a href="#" className="btn btn-outline-primary">Know more!</a>
+                    </Link>
                     <a
                         onClick={handleFavorite}
                         href="#"
