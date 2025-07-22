@@ -1,4 +1,5 @@
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import Planets from "../assets/img/planets.png"
 
 const CardPlanets = ({ uid, name, climate, diameter, gravity, population, terrain }) => {
   const { store, dispatch } = useGlobalReducer();
@@ -15,7 +16,7 @@ const CardPlanets = ({ uid, name, climate, diameter, gravity, population, terrai
   return (
     <div className="card" style={{ minWidth: "18rem" }}>
       <img
-        src="https://images.unsplash.com/photo-1580422333073-afe7ebfe03f5?auto=format&fit=crop&w=1170&q=80"
+        src= {Planets}
         className="card-img-top"
         alt="Planet"
       />
