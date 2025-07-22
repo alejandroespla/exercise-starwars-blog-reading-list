@@ -6,11 +6,8 @@ const PersonDetail = () => {
   const { uid } = useParams();
 
   const [person, setPerson] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
     fetch(`https://www.swapi.tech/api/people/${uid}`)
       .then(res => {
         if (!res.ok) throw new Error("Error fetching person");
@@ -18,13 +15,14 @@ const PersonDetail = () => {
       })
       .then(data => {
         setPerson(data.result);
-        setLoading(false);
       })
       .catch(err => {
-        setError(err.message);
-        setLoading(false);
+        // Aquí podrías manejar el error si quieres, ahora se ignora
+        setPerson(null);
       });
   }, [uid]);
+
+  if (!person) return null; // No renderiza nada si no hay datos
 
   const { properties } = person;
 
@@ -46,7 +44,6 @@ const PersonDetail = () => {
         <p><strong>Height:</strong> {properties.height}</p>
         <p><strong>Mass:</strong> {properties.mass}</p>
         <p><strong>Skin Color:</strong> {properties.skin_color}</p>
-        {/* Aquí podrías añadir más info, links, etc */}
       </div>
     </div>
   );
